@@ -1,0 +1,26 @@
+
+<h1>Filter By Status:</h1>
+
+<div >
+    <button type="button" (click)="invokeTwoMethods($event) " value="ALL" >ALL<sup>{{allCount}}</sup> </button>
+    <!-- <input *ngIf ="allCount!=0" class="form-check-input" id="all" type="radio" name="status" value="ALL" [(ngModel)]="selectedStatus"  (change)="statusChangeEmitter()">
+     <label class="form-check-label" for="all">
+        ALL <sup>{{allCount}}</sup> 
+      </label> -->
+    <input  *ngIf="pendingCount!=0" class="form-check-input" id="pending"type="radio" name="status" value="PENDING" [(ngModel)]="selectedStatus" (change)="statusChangeEmitter()">
+    <label class="form-check-label" for="pending">
+        PENDING  <sup>{{pendingCount }}</sup> 
+      </label>
+   
+    <input *ngIf="rejectedCount!=0"  class="form-check-input"id="rejected"  type="radio" name="status" value="REJECTED" [(ngModel)]="selectedStatus" (change)="statusChangeEmitter()">
+    <label class="form-check-label" for="rejected">
+      <span class="reject">REJECTED  <sup>{{rejectedCount}}</sup> </span>
+      </label>
+   
+   
+    <input *ngIf="approvedCount!=0" class="form-check-input" id="approved"  type="radio" name="status"value="APPROVED" [(ngModel)]="selectedStatus" (change)="statusChangeEmitter()"> 
+
+    <label class="form-check-label" for="approved">
+      APPROVED  <sup>{{approvedCount}}</sup> 
+      </label>
+</div>

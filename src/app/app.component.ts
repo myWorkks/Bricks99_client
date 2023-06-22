@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Brick99';
+
+
+  contentFromChild!:String
+
+  contentFromChild1(data:String){
+    this.contentFromChild=data
+  }
+
+  name:String="BHarath"
 }

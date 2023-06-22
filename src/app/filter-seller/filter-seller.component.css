@@ -1,0 +1,29 @@
+label{
+    border: 1px;
+    border-radius: 10px;
+    background-color: #0d6efd;
+    padding: 3px 30px 3px 30px;
+    border-color: #0d6efd;
+    color: rgb(251, 245, 245);
+    border-style: solid;
+    font-weight: 5px;
+    align-items: center;
+}
+input{
+    align-items: center;
+}
+.bdg{
+    background-color: #050101;
+}
+sup{
+    border-color: #050101;
+    border-style: solid;
+    border:0.5px;
+    background-color: rgb(108, 205, 243);
+    font-weight: bolder;
+    color: rgb(0, 3, 5);
+    border-radius: 20px;
+    padding: 2px 10px 2px 10px;
+    z-index: 20px;
+    box-shadow: #0b0404;
+}

@@ -1,0 +1,233 @@
+<p>seller works!</p>
+<div class="align">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card">
+           
+                <img src="assets/img/user-5.jpg"  height="300"  alt="seller photo">
+                <h2>{{seller.firstName}}</h2>
+                {{seller.status}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card">
+                <h1>Id Proof</h1>
+                <img src="" alt="adhaar card">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="">
+                <h1>Seller details</h1>
+
+                <table class="table">
+
+
+
+
+                    <tbody>
+
+                        <tr>
+                            <th scope="row">Seller Id</th>
+                            <td>{{seller.sellerId}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">First Name</th>
+                            <td>{{seller.firstName}}</td>
+
+
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Last Name</th>
+                            <td>{{seller.lastName}}</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Mobile</th>
+                            <td>{{seller.contact}}</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Email </th>
+                            <td>{{seller.email}}</td>
+
+                        </tr>
+
+
+
+
+                    </tbody>
+
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="">
+                <h1>Address Details</h1>
+                <table class="table">
+
+
+
+
+                    <tbody>
+
+                        <tr>
+                            <th scope="row">Address Line 1</th>
+                            <td>{{seller.address.addressLine1}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Address Line 2</th>
+                            <td>{{seller.address.addressLine2}}</td>
+
+
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">City</th>
+                            <td>{{seller.address.city}}</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">State</th>
+                            <td>{{seller.address.city}}</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Pincode</th>
+                            <td>{{seller.address.pincode}}</td>
+
+                        </tr>
+
+
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="card-footer">
+    <div *ngIf="seller.status!='APPROVED'">
+        <button [disabled]="approveDisableButton" class=" btn btn-primary"
+            (click)="approve(seller.sellerId)">Approve</button>
+    </div>
+    <div *ngIf="seller.status!='REJECTED'"><button [disabled]="rejectDisableButton " class=" btn btn-danger"
+            (click)="deny(seller.sellerId)">Reject</button>
+    </div>
+
+    <div  *ngIf="approveMessage!=null ;else errorMsg ">
+      <span class="text text-success"> {{approveMessage}}</span> 
+    </div>
+    <div>
+        <ng-template  #errorMsg> <span class="text text-danger"> {{errorMessage}}</span></ng-template>
+    </div>
+</div>
+<div *ngIf="seller.status!='PENDING'">
+    <h1>Property Details</h1>
+    <div>
+        <table class="table">
+
+
+
+            <thead class="thead-dark">
+
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Property Id</th>
+                    <th scope="col">Property Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>B99-P-1</td>
+                    <td>Reddy Niwas</td>
+
+
+                    <td><button class=" btn btn-primary">View Details</button></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>B99-P-1</td>
+                    <td>Reddy Niwas</td>
+
+
+                    <td><button class=" btn btn-primary">View Details</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>B99-P-1</td>
+                    <td>Reddy Niwas</td>
+
+
+                    <td><button class=" btn btn-primary">View Details</button></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>B99-P-1</td>
+                    <td>Reddy Niwas</td>
+
+
+                    <td><button class=" btn btn-primary">View Details</button></td>
+                </tr>
+
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+<p>end of seller</p>
+<div *ngIf="display==true">
+    <button (click)="goBack()">Go Back To Sellers</button>
+
+</div>

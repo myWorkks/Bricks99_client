@@ -1,0 +1,34 @@
+.container {
+    
+    max-width: 500px; 
+    margin-top: 200px;
+    margin-left: 700px;
+}
+
+h2{
+    font-family: sans-serif;
+    font-size: 40px;
+    border-bottom: 3px solid purple;
+    width: 25%;
+
+}
+
+#input1 {
+     border: none;
+     font-size: 18px;
+     border-bottom: 2px solid black;
+}
+
+#input2 {
+    border: none;
+    font-size: 18px;
+    border-bottom: 2px solid black;
+}
+
+#sign {
+    width: 50%;
+    color: white;
+    background-color: #080051;
+    height: 32px;
+    font-size: 18px;
+}
