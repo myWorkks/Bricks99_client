@@ -27,4 +27,5 @@ export class SellerRegisration {
     : 
     Number
     status!:String
+    adhaar!:String
 }

@@ -23,8 +23,8 @@ export class FarmHubLoginComponent  {
 
   onSubmit(){
 this.adminService.adminLogin(this.loginForm.value)
-console.log("submitmethod");
-this.route.navigate(['admin-dashboard'])
+
+this.route.navigate(['home'])
 
   }
 } 

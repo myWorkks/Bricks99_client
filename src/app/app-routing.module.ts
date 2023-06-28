@@ -7,8 +7,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SellersComponent } from './sellers/sellers.component';
 import { SellerComponent } from './seller/seller.component';
 import { FarmHubLoginComponent } from './farm-hub-login/farm-hub-login.component';
+import { PropertyComponent } from './property/property.component';
+import { PropertiesComponent } from './properties/properties.component';
 
 const routes: Routes = [
+  {path:'',component:FarmHubLoginComponent},
  {path:'contact',component:ContactComponent}
  ,{
   path:'home',component:HomeComponent
@@ -17,7 +20,9 @@ const routes: Routes = [
  },{
   path:'login',component:FarmHubLoginComponent
  },
-{ path:'sellers/seller/:id',component:SellerComponent}
+{ path:'sellers/seller/:id',component:SellerComponent},
+{path:'seller/property/:id',component:PropertyComponent},
+{path:'properties',component:PropertiesComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,70 @@
+<p>property works!</p>
+
+
+
+<div>
+    <div class="card">
+
+        Property Image
+        <img src="assets/img/propertyImage.jpg" alt="property Image">
+
+    </div>
+    <div class="main">
+
+        <div class="col-md-3">
+            <div class="">
+                <h1>Seller details</h1>
+
+                <table class="table">
+
+
+
+
+                    <tbody>
+
+                        <tr>
+                            <th scope="row">Property Id</th>
+                            <td>{{property.propertyId}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <th scope="row">Property Name</th>
+                            <td>{{property.propertyName}}</td>
+
+
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Area</th>
+                            <td>{{property.areaInSqft}}</td>
+
+                        </tr>
+                       <tr>
+                            <th scope="row">Price</th>
+                            <td>{{property.propertyPrice | currency:'INR'}}</td>
+
+                        </tr>
+                         <!-- <tr>
+                            <th scope="row">Email </th>
+                            <td>{{seller.email}}</td>
+
+                        </tr> -->
+
+
+
+
+                    </tbody>
+
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

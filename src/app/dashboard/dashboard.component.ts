@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SellerRegisration } from '../model/seller-regisration';
 import { AdminService } from '../Services/admin.service';
 import { Route, Router } from '@angular/router';
+import { Property } from '../model/Property';
 
 
 @Component({
@@ -12,13 +13,15 @@ import { Route, Router } from '@angular/router';
 
 })
 export class DashboardComponent implements OnInit {
-  sellers!: any
+  sellers: SellerRegisration[]=[]
   status1: String[] = ["APPROVED", "REJECTED", "PENDING"]
   errorMessage!: String
   approveMessage!: String
   approveForm!: FormGroup
   statusForm!: FormGroup
-  count!: Number
+  count!: number
+ 
+  properties:Property[]=[]
   constructor(private fb: FormBuilder, private adminService: AdminService, private route: Router) {
 
     this.statusForm = this.fb.group({
@@ -31,7 +34,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
     this.viewSellers()
-
+this.viewProperties()
 
   }
   navigateToSellers() {
@@ -39,7 +42,14 @@ export class DashboardComponent implements OnInit {
 
 
   }
+  viewProperties() {
+    this.adminService.viewAllProperties().subscribe((data) => {
+      this.properties=data
 
+    },
+      (error) => { console.log(error); }
+    )
+  }
   viewSellers() {
 
 
@@ -50,13 +60,12 @@ export class DashboardComponent implements OnInit {
       (data) => {
 
         this.sellers = data
-        console.log(this.sellers);
-        console.log("data invoked");
+    
         if (this.sellers != null) {
           this.count = Object.keys(this.sellers).length;
 
 
-          console.log(this.count);
+        
         }
 
 
@@ -84,7 +93,10 @@ export class DashboardComponent implements OnInit {
     console.log(this.statusForm.value)
   }
 
+  navigateToProperty() {
 
+    this.route.navigate(['/properties'])
+  }
 
 
 

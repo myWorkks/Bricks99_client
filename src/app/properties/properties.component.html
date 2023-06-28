@@ -1,0 +1,95 @@
+<app-home></app-home>
+<div>
+    <div><label for="entrys">Enter Number of entries</label>
+        <input id="entrys" type="text" value="" [(ngModel)]="noOfEntriesPerPage">
+
+    </div>
+    <div> CurrentPage:<strong>{{pgNumber + 1}}</strong></div>
+</div>
+
+
+
+
+<div>
+    <h1>Property Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Property Id</th>
+                <th scope="col">Property Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let p of properties; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>B99-P-{{p.propertyId}}</td>
+                <td>{{p.propertyName}}</td>
+
+
+                <td><button class=" btn btn-primary" (click)="navigateToProperty(p.propertyId)">View
+                        Details</button></td>
+            </tr>
+        </tbody>
+
+
+
+        <!-- Add more rows here -->
+    </table>
+
+    <div class="pagination">
+
+        <button *ngIf="pgNumber>0" (click)="changePg( '-' )">&laquo;</button>
+        <button (click)="changePg(0)">1</button>
+        <button (click)="changePg(1)">2</button>
+        <button (click)="changePg(2)">3</button>
+        <button [disabled]="buttonDisable" (click)="changePg(3)">4</button>
+        <button [disabled]="buttonDisable" (click)="changePg(4)">5</button>
+        <!-- <button [disabled]="true">{{pgNumber + 1}}</button>  -->
+        <button [disabled]="buttonDisable" (click)="changePg( '+')">&raquo;</button>
+
+    </div>
+</div>
+
+
+
+<!-- <div >
+    <h1>Property Details</h1>
+    <div>
+        <table class="table">
+
+
+
+            <thead class="thead-dark">
+
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Property Id</th>
+                    <th scope="col">Property Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+                <tr *ngFor="let p of properties; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>B99-P-{{p.propertyId}}</td>
+                    <td>{{p.propertyName}}</td>
+
+
+                    <td><button class=" btn btn-primary" (click)="navigateToProperty(p.propertyId)">View
+                            Details</button></td>
+                </tr>
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div> -->

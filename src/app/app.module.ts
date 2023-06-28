@@ -24,6 +24,10 @@ import { SellersComponent } from './sellers/sellers.component';
 import { SellerComponent } from './seller/seller.component';
 import { LoginComponent } from './login/login.component';
 import { FarmHubLoginComponent } from './farm-hub-login/farm-hub-login.component';
+
+import { PropertyComponent } from './property/property.component';
+import { PropertiesComponent } from './properties/properties.component';
+import { FooterComponent } from './footer/footer.component';
 import { FilterSellerComponent } from './filter-seller/filter-seller.component';
 
 @NgModule({
@@ -39,7 +43,10 @@ import { FilterSellerComponent } from './filter-seller/filter-seller.component';
     SellerComponent,
     LoginComponent,
     FarmHubLoginComponent,
-    FilterSellerComponent
+    FilterSellerComponent,
+    PropertyComponent,
+    PropertiesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,29 +1,39 @@
-<p>seller works!</p>
+<app-home></app-home>
 <div class="align">
-    <div class="row">
+    <div class="main">
 
         <div class="col-md-3">
             <div class="card">
-           
-                <img src="assets/img/user-5.jpg"  height="300"  alt="seller photo">
+
+                 <img src="{{profilePath}}" alt="seller photo"> 
+                <!-- <img src="assets/sellers/Profiles/profile1.jpg" alt="seller photo"> -->
                 <h2>{{seller.firstName}}</h2>
                 {{seller.status}}
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="main">
 
         <div class="col-md-3">
             <div class="card">
                 <h1>Id Proof</h1>
-                <img src="" alt="adhaar card">
-
+                <img src="{{adhaarPath}}" alt="adhaar card" >
+                <h4>{{seller.adhaar}}</h4>
+            </div>
+            <div class="card-footer">
+                <div *ngIf="seller.status!='APPROVED'">
+                    <button [disabled]="approveDisableButton" class=" btn btn-primary"
+                        (click)="approve(seller.sellerId)">Approve</button>
+                </div>
+                <div *ngIf="seller.status!='REJECTED'"><button [disabled]="rejectDisableButton " class=" btn btn-danger"
+                        (click)="deny(seller.sellerId)">Reject</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="main">
 
         <div class="col-md-3">
             <div class="">
@@ -81,10 +91,10 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="main">
 
         <div class="col-md-3">
-            <div class="">
+            <div *ngIf="seller.address!=null">
                 <h1>Address Details</h1>
                 <table class="table">
 
@@ -141,85 +151,58 @@
 
 
 <div class="card-footer">
-    <div *ngIf="seller.status!='APPROVED'">
-        <button [disabled]="approveDisableButton" class=" btn btn-primary"
-            (click)="approve(seller.sellerId)">Approve</button>
-    </div>
-    <div *ngIf="seller.status!='REJECTED'"><button [disabled]="rejectDisableButton " class=" btn btn-danger"
-            (click)="deny(seller.sellerId)">Reject</button>
-    </div>
 
-    <div  *ngIf="approveMessage!=null ;else errorMsg ">
-      <span class="text text-success"> {{approveMessage}}</span> 
+
+    <div *ngIf="approveMessage!=null ;else errorMsg ">
+        <span class="text text-success"> {{approveMessage}}</span>
     </div>
     <div>
-        <ng-template  #errorMsg> <span class="text text-danger"> {{errorMessage}}</span></ng-template>
+        <ng-template #errorMsg> <span class="text text-danger"> {{errorMessage}}</span></ng-template>
     </div>
 </div>
-<div *ngIf="seller.status!='PENDING'">
-    <h1>Property Details</h1>
-    <div>
-        <table class="table">
+<div *ngIf="properties.length>0 ;else propErrorMessage">
+    <div *ngIf="seller.status!='PENDING'">
+        <h1>Property Details</h1>
+        <div>
+            <table class="table">
 
 
 
-            <thead class="thead-dark">
+                <thead class="thead-dark">
 
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Property Id</th>
-                    <th scope="col">Property Name</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-
-
-
-
-                <tr>
-                    <th scope="row">1</th>
-                    <td>B99-P-1</td>
-                    <td>Reddy Niwas</td>
-
-
-                    <td><button class=" btn btn-primary">View Details</button></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">1</th>
-                    <td>B99-P-1</td>
-                    <td>Reddy Niwas</td>
-
-
-                    <td><button class=" btn btn-primary">View Details</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>B99-P-1</td>
-                    <td>Reddy Niwas</td>
-
-
-                    <td><button class=" btn btn-primary">View Details</button></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">1</th>
-                    <td>B99-P-1</td>
-                    <td>Reddy Niwas</td>
-
-
-                    <td><button class=" btn btn-primary">View Details</button></td>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Property Id</th>
+                        <th scope="col">Property Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
 
 
 
 
-            </tbody>
+                    <tr *ngFor="let p of properties; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>B99-P-{{p.propertyId}}</td>
+                        <td>{{p.propertyName}}</td>
 
-        </table>
+
+                        <td><button class=" btn btn-primary" (click)="navigateToProperty(p.propertyId)">View
+                                Details</button></td>
+                    </tr>
+
+
+
+                </tbody>
+
+            </table>
+        </div>
     </div>
 </div>
+<ng-template #propErrorMessage>
+    <p class="text-danger">No Properties Found</p>
+</ng-template>
 
 
 

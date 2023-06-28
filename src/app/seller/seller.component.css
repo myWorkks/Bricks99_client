@@ -1,3 +1,40 @@
-/* .align{
-    display: inline-block;
-} */
+/* .align {
+    text-align: center;
+  }
+  
+  .main {
+    /* display: inline-block; 
+    margin: 10px;
+    vertical-align: top;
+  }
+  
+  .col-md-3 {
+    width: 33.33%;
+  }
+  
+  .card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .card h2 {
+    margin-top: 10px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 5px;
+  }
+   */

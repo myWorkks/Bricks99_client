@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class SellersComponent implements OnInit {
  selectedStatus!:String
   display:boolean=false
-  count!: number
-sellers!:SellerRegisration[]
+  count: number=0
+sellers:SellerRegisration[]=[]
 filteredSellers!:SellerRegisration[]
 seller1!:SellerRegisration
 errorMessage!:String
